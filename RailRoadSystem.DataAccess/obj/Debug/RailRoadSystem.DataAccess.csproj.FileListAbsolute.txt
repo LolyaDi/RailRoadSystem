@@ -1,0 +1,17 @@
+c:\users\бейсеновад.corp.000\source\repos\RailRoadSystem\RailRoadSystem.DataAccess\bin\Debug\RailRoadSystem.DataAccess.dll.config
+c:\users\бейсеновад.corp.000\source\repos\RailRoadSystem\RailRoadSystem.DataAccess\bin\Debug\RailRoadSystem.DataAccess.dll
+c:\users\бейсеновад.corp.000\source\repos\RailRoadSystem\RailRoadSystem.DataAccess\bin\Debug\RailRoadSystem.DataAccess.pdb
+c:\users\бейсеновад.corp.000\source\repos\RailRoadSystem\RailRoadSystem.DataAccess\bin\Debug\EntityFramework.dll
+c:\users\бейсеновад.corp.000\source\repos\RailRoadSystem\RailRoadSystem.DataAccess\bin\Debug\EntityFramework.SqlServer.dll
+c:\users\бейсеновад.corp.000\source\repos\RailRoadSystem\RailRoadSystem.DataAccess\bin\Debug\RailRoadSystem.Models.dll
+c:\users\бейсеновад.corp.000\source\repos\RailRoadSystem\RailRoadSystem.DataAccess\bin\Debug\RailRoadSystem.Models.pdb
+c:\users\бейсеновад.corp.000\source\repos\RailRoadSystem\RailRoadSystem.DataAccess\bin\Debug\EntityFramework.xml
+c:\users\бейсеновад.corp.000\source\repos\RailRoadSystem\RailRoadSystem.DataAccess\bin\Debug\EntityFramework.SqlServer.xml
+c:\users\бейсеновад.corp.000\source\repos\RailRoadSystem\RailRoadSystem.DataAccess\bin\Debug\ru\EntityFramework.resources.dll
+c:\users\бейсеновад.corp.000\source\repos\RailRoadSystem\RailRoadSystem.DataAccess\obj\Debug\RailRoadSystem.DataAccess.csprojAssemblyReference.cache
+c:\users\бейсеновад.corp.000\source\repos\RailRoadSystem\RailRoadSystem.DataAccess\obj\Debug\RailRoadSystem.DataAccess.csproj.CoreCompileInputs.cache
+c:\users\бейсеновад.corp.000\source\repos\RailRoadSystem\RailRoadSystem.DataAccess\obj\Debug\RailRoadSystem.DataAccess.csproj.CopyComplete
+c:\users\бейсеновад.corp.000\source\repos\RailRoadSystem\RailRoadSystem.DataAccess\obj\Debug\RailRoadSystem.DataAccess.dll
+c:\users\бейсеновад.corp.000\source\repos\RailRoadSystem\RailRoadSystem.DataAccess\obj\Debug\RailRoadSystem.DataAccess.pdb
+c:\users\бейсеновад.corp.000\source\repos\RailRoadSystem\RailRoadSystem.DataAccess\obj\Debug\RailRoadSystem.DataAccess.Migrations.InitialCreate.resources
+c:\users\бейсеновад.corp.000\source\repos\RailRoadSystem\RailRoadSystem.DataAccess\obj\Debug\RailRoadSystem.DataAccess.csproj.GenerateResource.cache

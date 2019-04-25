@@ -1,0 +1,5 @@
+c:\users\бейсеновад.corp.000\source\repos\RailRoadSystem\RailRoadSystem.Models\bin\Debug\RailRoadSystem.Models.dll
+c:\users\бейсеновад.corp.000\source\repos\RailRoadSystem\RailRoadSystem.Models\bin\Debug\RailRoadSystem.Models.pdb
+c:\users\бейсеновад.corp.000\source\repos\RailRoadSystem\RailRoadSystem.Models\obj\Debug\RailRoadSystem.Models.csproj.CoreCompileInputs.cache
+c:\users\бейсеновад.corp.000\source\repos\RailRoadSystem\RailRoadSystem.Models\obj\Debug\RailRoadSystem.Models.dll
+c:\users\бейсеновад.corp.000\source\repos\RailRoadSystem\RailRoadSystem.Models\obj\Debug\RailRoadSystem.Models.pdb

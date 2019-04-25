@@ -1,0 +1,7 @@
+c:\users\бейсеновад.corp.000\source\repos\RailRoadSystem\RailRoadSystem.Console\bin\Debug\RailRoadSystem.Console.exe.config
+c:\users\бейсеновад.corp.000\source\repos\RailRoadSystem\RailRoadSystem.Console\bin\Debug\RailRoadSystem.Console.exe
+c:\users\бейсеновад.corp.000\source\repos\RailRoadSystem\RailRoadSystem.Console\bin\Debug\RailRoadSystem.Console.pdb
+c:\users\бейсеновад.corp.000\source\repos\RailRoadSystem\RailRoadSystem.Console\obj\Debug\RailRoadSystem.Console.csprojAssemblyReference.cache
+c:\users\бейсеновад.corp.000\source\repos\RailRoadSystem\RailRoadSystem.Console\obj\Debug\RailRoadSystem.Console.csproj.CoreCompileInputs.cache
+c:\users\бейсеновад.corp.000\source\repos\RailRoadSystem\RailRoadSystem.Console\obj\Debug\RailRoadSystem.Console.exe
+c:\users\бейсеновад.corp.000\source\repos\RailRoadSystem\RailRoadSystem.Console\obj\Debug\RailRoadSystem.Console.pdb
