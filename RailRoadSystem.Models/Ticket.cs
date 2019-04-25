@@ -13,13 +13,9 @@ namespace RailRoadSystem.Models
 
         [Required]
         public int RailwayCarriage { get; set; }
-
-        public Guid CityToId { get; set; }
-
+        
         public City CityTo { get; set; }
-
-        public Guid CityFromId { get; set; }
-
+        
         public City CityFrom { get; set; }
     }
 }

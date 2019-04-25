@@ -11,7 +11,7 @@ namespace RailRoadSystem.Console
         public static void Main(string[] args)
         {
             string userChoice;
-            
+
             System.Console.WriteLine("Хотите купить билет? y/n");
             userChoice = System.Console.ReadLine();
 
@@ -27,12 +27,13 @@ namespace RailRoadSystem.Console
                     System.Console.WriteLine("Были введены некорректные символы!");
                     break;
             }
+
+            System.Console.ReadLine();
         }
 
         public static void BuyTicket()
         {
-            string userChoice, fullName;
-            bool isParsed;
+            string fullName;
 
             System.Console.WriteLine("Введите свое ФИО:");
             fullName = System.Console.ReadLine();
@@ -44,22 +45,23 @@ namespace RailRoadSystem.Console
                 var usersData = repository.Select<User>();
                 user = new List<User>(usersData).Find(u => u.FullName == fullName);
             }
-            
+
             if (user is null)
             {
-                System.Console.WriteLine("Go fuck yourself, please");
+                System.Console.WriteLine("Пользователя с таким ФИО не существует!");
+
                 return;
             }
 
-            var ticket = new Ticket();
+            string userChoice;
+            bool isParsed;
 
-            int railwayCarriage, seat, cityNumber;
-            DateTime dateTime;
+            var ticket = new Ticket();
 
             System.Console.WriteLine("Введите дату отправления:");
             userChoice = System.Console.ReadLine();
 
-            isParsed = isParsed = DateTime.TryParse(userChoice, out dateTime);
+            isParsed = isParsed = DateTime.TryParse(userChoice, out DateTime dateTime);
 
             while (!isParsed)
             {
@@ -73,33 +75,16 @@ namespace RailRoadSystem.Console
             System.Console.WriteLine("Введите номер вагона:");
             userChoice = System.Console.ReadLine();
 
-            isParsed = int.TryParse(userChoice, out railwayCarriage);
-
-            while(!isParsed)
-            {
-                System.Console.WriteLine("Неверный ввод! Введите еще раз:");
-                userChoice = System.Console.ReadLine();
-                isParsed = int.TryParse(userChoice, out railwayCarriage);
-            }
-
+            CheckData(userChoice, out int railwayCarriage);
             ticket.RailwayCarriage = railwayCarriage;
 
             System.Console.WriteLine("Введите номер места:");
             userChoice = System.Console.ReadLine();
 
-            isParsed = int.TryParse(userChoice, out seat);
-
-            while (!isParsed)
-            {
-                System.Console.WriteLine("Неверный ввод! Введите еще раз:");
-                userChoice = System.Console.ReadLine();
-                isParsed = int.TryParse(userChoice, out seat);
-            }
-
+            CheckData(userChoice, out int seat);
             ticket.Seat = seat;
 
             List<City> cities;
-            int i = 0;
 
             using (var repository = new Repository())
             {
@@ -107,64 +92,73 @@ namespace RailRoadSystem.Console
                 cities = new List<City>(citiesData);
             }
 
+            GetAllCities(cities);
+
             System.Console.WriteLine("Введите номер города, куда направляется поезд:");
             userChoice = System.Console.ReadLine();
 
-            isParsed = int.TryParse(userChoice, out cityNumber);
+            CheckData(userChoice, out int cityNumber);
 
-            i = 0;
-
-            System.Console.WriteLine(string.Format("{0}) {1,-20}","№","Название"));
-            foreach(var city in cities)
+            if (cityNumber > cities.Count || cityNumber <= 0)
             {
-                System.Console.WriteLine(string.Format("{0}) {1,-20}",++i,city.Name));
-            }
-
-            while (!isParsed || cityNumber > cities.Count || cityNumber <= 0)
-            {
-                System.Console.WriteLine("Неверный ввод! Введите еще раз:");
-                userChoice = System.Console.ReadLine();
-                isParsed = int.TryParse(userChoice, out cityNumber);
+                System.Console.WriteLine("Города под таким номером не существует!");
+                return;
             }
 
             var cityTo = cities[cityNumber - 1];
-
-            ticket.CityTo = cityTo;
-            ticket.CityToId = cityTo.Id;
-
+            
             System.Console.WriteLine("Введите номер города, откуда отправляется поезд:");
             userChoice = System.Console.ReadLine();
 
-            isParsed = int.TryParse(userChoice, out cityNumber);
+            CheckData(userChoice, out cityNumber);
 
-            i = 0;
+            if (cityNumber > cities.Count || cityNumber <= 0)
+            {
+                System.Console.WriteLine("Города под таким номером не существует!");
+                return;
+            }
+
+            var cityFrom = cities[cityNumber - 1];
+            
+            using (var context = new DataContext())
+            {
+                context.Users.Attach(user);
+
+                ticket.CityFrom = context.Cities.Attach(cityFrom);
+                ticket.CityTo = context.Cities.Attach(cityTo);
+
+                user.Tickets = new List<Ticket>
+                {
+                    ticket
+                };
+
+                context.SaveChanges();
+            }
+
+            System.Console.WriteLine("Поздравляем с покупкой!");
+        }
+
+        public static void CheckData(string dataString, out int number)
+        {
+            bool isParsed = int.TryParse(dataString, out number);
+
+            while (!isParsed)
+            {
+                System.Console.WriteLine("Неверный ввод! Введите еще раз:");
+                dataString = System.Console.ReadLine();
+                isParsed = int.TryParse(dataString, out number);
+            }
+        }
+
+        public static void GetAllCities(List<City> cities)
+        {
+            int i = 0;
 
             System.Console.WriteLine(string.Format("{0}) {1,-20}", "№", "Название"));
             foreach (var city in cities)
             {
                 System.Console.WriteLine(string.Format("{0}) {1,-20}", ++i, city.Name));
             }
-
-            while (!isParsed || cityNumber > cities.Count || cityNumber <= 0)
-            {
-                System.Console.WriteLine("Неверный ввод! Введите еще раз:");
-                userChoice = System.Console.ReadLine();
-                isParsed = int.TryParse(userChoice, out cityNumber);
-            }
-
-            var cityFrom = cities[cityNumber - 1];
-
-            ticket.CityFrom = cityFrom;
-            ticket.CityFromId = cityFrom.Id;
-
-            user.Tickets.Add(ticket);
-
-            using (var repository = new Repository())
-            {
-                repository.Update(user);
-            }
-
-            System.Console.WriteLine("Билет был куплен!");
         }
 
         public static List<TResult> ToList<TResult>(this IQueryable<TResult> source)
